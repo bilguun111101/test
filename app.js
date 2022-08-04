@@ -39,7 +39,7 @@ const upload = async (filePath) => {
   console.log(bucket.name);
   return `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(file.name)}?alt=media&token=${uuid}`;
 }
-
+console(hahah)
 const firebaseApp = getApp();
 // const storage = getStorage(firebaseApp, 'gs://storage-tutorial-356f4.appspot.com')
 
