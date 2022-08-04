@@ -1,0 +1,42 @@
+{
+  "name": "storage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^9.9.1"
+  },
+  "type": "module"
+}
+
+
+import { Certificate } from "crypto";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, getDocs, doc ,setDoc,query,where} from "firebase/firestore";
+import { getStorage } from "firebase/storage"
+const http = require('http');
+
+
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Bilguun",
+    last: "Battengel",
+    age: 23
+  });
+
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+
+const citiesRef = collection(db, "cities");
+const query1 = query(citiesRef, where("country", '!=', 'USA'));
+const querySnap = await getDocs(query1);
+querySnap.forEach((doc) => {
+  console.log(doc.data())
+})
