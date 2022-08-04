@@ -23,7 +23,7 @@ initializeApp({
 
 const bucket = getStorage().bucket();
 const filePath = 'natu.jpeg';
-console.log('hah')
+
 
 const upload = async (filePath) => {
   let uuid = uuid_v4();
